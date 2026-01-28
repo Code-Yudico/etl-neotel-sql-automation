@@ -23,34 +23,43 @@ Se desarrolló un pipeline robusto en Python que orquesta las tres fases del pro
 
 - **Load (PyODBC)**: Carga incremental y segura en SQL Server, utilizando transacciones y validaciones de seguridad para garantizar la integridad de los datos.
 
-
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffcc00', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#f4f4f4'}}}%%
+```mermaid
 graph LR
-    subgraph Source [Fuente]
+    %% Definición de estilos profesionales
+    classDef sourceStyle fill:#f0f7ff,stroke:#0056b3,stroke-width:2px,color:#0056b3,font-weight:bold
+    classDef etlStyle fill:#fff8e1,stroke:#ffa000,stroke-width:2px,color:#7f4e00,font-weight:bold
+    classDef dbStyle fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20,font-weight:bold
+    classDef tableStyle fill:#ffffff,stroke:#9e9e9e,stroke-width:1px,stroke-dasharray: 5 5,color:#616161
+
+    subgraph Source [Origen de Datos]
         A[CRM Neotel Web]:::sourceStyle
     end
 
-    subgraph Python_ETL [Script Python ETL]
+    subgraph Script_Python [Core ETL - Python]
         direction TB
-        B(EXTRACCIÓN:<br/>Selenium Headless):::etlStyle -->|Archivos Crudos| C(TRANSFORMACIÓN:<br/>Pandas Cleaning & Time Conv.):::etlStyle
-        C -->|DataFrames Limpios| D(CARGA:<br/>PyODBC con Transacciones):::etlStyle
+        B(Extracción: Selenium):::etlStyle
+        C(Transformación: Pandas):::etlStyle
+        D(Carga: PyODBC):::etlStyle
+        
+        B --> C --> D
     end
 
-    subgraph Destination [Destino]
-        E[(Microsoft SQL Server)]:::dbStyle
-        E --- F[tbl_neotel_conducta]:::tableStyle
-        E --- G[tbl_neotel_estados_operativos]:::tableStyle
+    subgraph Destination [Almacenamiento]
+        E[(MS SQL Server)]:::dbStyle
+        F[Reportes Conducta]:::tableStyle
+        G[Estados Operativos]:::tableStyle
+        
+        E --- F
+        E --- G
     end
 
-    A ==>"Navegación y Descarga Automática"==> B
-    D ==>"Insert/Batch Load"==> E
+    A == "Automation" ==> B
+    D == "Batch Load" ==> E
 
-    %% Estilos para que se vea profesional
-    classDef sourceStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1;
-    classDef etlStyle fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#f57f17;
-    classDef dbStyle fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
-    classDef tableStyle fill:#ffffff,stroke:#bdbdbd,stroke-width:1px,stroke-dasharray: 5 5;
-
+    %% Enlaces con estilo
+    linkStyle default stroke:#616161,stroke-width:1px
+    linkStyle 3,4 stroke:#0056b3,stroke-width:2px
+```
 
 ## Stack Tecnológico
 - **Lenguaje**: Python 3.x
