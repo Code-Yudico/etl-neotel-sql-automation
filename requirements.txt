@@ -1,0 +1,15 @@
+# --- ETL Neotel Pipeline Dependencies ---
+
+# Procesamiento de Datos
+pandas>=2.0.0
+openpyxl>=3.1.0  # Necesario para el fallback de lectura de Excel
+
+# Automatización Web
+selenium>=4.10.0
+
+# Gestión de Base de Datos
+pyodbc>=4.0.39
+
+# Resiliencia y Configuración
+python-dotenv>=1.0.0
+tenacity>=8.2.0
