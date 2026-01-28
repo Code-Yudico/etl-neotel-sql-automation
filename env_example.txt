@@ -1,0 +1,6 @@
+NEOTEL_USER=tu_usuario
+NEOTEL_PASS=tucontraseña
+SQL_SERVER=nombre_servidor
+SQL_DATABASE=nombre_bdd
+SQL_USER=usuario_sql
+SQL_PASSWORD=contraseña_sql
