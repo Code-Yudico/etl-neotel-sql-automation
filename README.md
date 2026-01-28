@@ -1,7 +1,7 @@
 ## Automatización ETL: Pipeline de CRM Neotel a MS SQL Server 
 Este proyecto implementa una solución de Ingeniería de Datos de extremo a extremo para automatizar la extracción de reportes operativos de un Call Center desde el CRM Neotel, transformando datos crudos en información estructurada y lista para análisis en Microsoft SQL Server.
 
-![Porción final de los logs arrojados por la consola al terminar el proceso](imagenes/resultado_etl.png)
+![Porción final de los logs arrojados por la consola al terminar el proceso](images/resultado_etl.png)
 
 ## El Problema de Negocio
 Originalmente, la obtención de métricas de conducta y estados operativos de los agentes requería procesos manuales diarios: login en plataforma web, búsqueda y descarga de archivos individuales, limpieza manual y carga a base de datos. Este flujo era:
