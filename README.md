@@ -1,5 +1,5 @@
-## Automatización ETL: Pipeline de CRM Neotel a MS SQL Server 
-Este proyecto implementa una solución de Ingeniería de Datos de extremo a extremo para automatizar la extracción de reportes operativos de un Call Center desde el CRM Neotel, transformando datos crudos en información estructurada y lista para análisis en Microsoft SQL Server.
+## Automatización ETL: Pipeline de CRM a MS SQL Server 
+Este proyecto implementa una solución de Ingeniería de Datos de extremo a extremo para automatizar la extracción de reportes operativos  desde un CRM , transformando datos crudos en información estructurada y lista para análisis en Microsoft SQL Server.
 
 <p align="center">
   <img src="images/resultado_etl.png" alt="Log final de éxito del proceso" width="700">
@@ -91,8 +91,8 @@ A diferencia de un script básico, este ETL incluye:
 
 - Un archivo **.env** en la raíz con la siguiente estructura:
   ```
-  NEOTEL_USER=tu_usuario\
-  NEOTEL_PASS=tu_contrasena\
+  CRM_USER=tu_usuario\
+  CRM_PASS=tu_contrasena\
   SQL_SERVER=nombre_del_servidor\
   SQL_DATABASE=nombre_de_la_bd\
   SQL_USER=usuario_sql\
@@ -100,8 +100,8 @@ A diferencia de un script básico, este ETL incluye:
 
 ### Instalación
 ```bash
-git clone https://github.com/tu-usuario/etl-neotel-sql.git
-cd etl-neotel-sql
+git clone https://github.com/tu-usuario/etl-crm-sql.git
+cd etl-crm-sql
 pip install -r requirements.txt
 python main.py
 ```
